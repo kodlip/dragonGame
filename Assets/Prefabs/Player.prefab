@@ -176,7 +176,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 2.22, y: 4.69}
+  m_Size: {x: 2.91, y: 5.2}
   m_Direction: 0
 --- !u!50 &9100946950263815168
 Rigidbody2D:
@@ -190,11 +190,11 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 4
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_GravityScale: 4
+  m_Material: {fileID: 6200000, guid: 1e5f135287f51f74dab7e27ea3f4683f, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -221,10 +221,11 @@ MonoBehaviour:
   playerFireForm: {fileID: 392368089760946156}
   playerEarthForm: {fileID: 6057691524263894068}
   playerAirForm: {fileID: 7642455866303983691}
-  _fireAnimator: {fileID: 7194904145122634676}
-  _earthAnimator: {fileID: 915312573535365607}
+  _fireAnimator: {fileID: 915312573535365607}
+  _earthAnimator: {fileID: 7194904145122634676}
   _airAnimator: {fileID: 8203804638612318799}
-  _moveSpeed: 7
+  _moveSpeed: 15
+  _jumpForce: 5000
 --- !u!1 &6057691524263894068
 GameObject:
   m_ObjectHideFlags: 0

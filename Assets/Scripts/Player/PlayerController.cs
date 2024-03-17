@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private float _jumpForce;
 
+    [SerializeField] private Fireball _fireballPrefab;
+
     private Animator _currentAnimator;
     private PlayerForms _playerForm;
     private Vector2 _moveVector;
@@ -32,6 +34,8 @@ public class PlayerController : MonoBehaviour
     private static readonly int MoveX = Animator.StringToHash("moveX");
     private Camera _camera;
 
+    private float _abilityCooldown = 2f;
+    private float _timeRemaining;
     private void Awake()
     {
         _camera = Camera.main;
@@ -39,18 +43,24 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        
         SetPlayerForm(PlayerForms.Earth);
     }
 
     private void Update()
     {
+        if (_timeRemaining >= 0)
+        {
+            _timeRemaining -= Time.deltaTime;
+        }
+        
         if (_camera != null)
         {
             var position = transform.position;
             var transform1 = _camera.transform;
             transform1.position = new Vector3(position.x, position.y, transform1.position.z);
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SetPlayerForm(PlayerForms.Earth);
@@ -99,6 +109,39 @@ public class PlayerController : MonoBehaviour
             playerRigidbody.AddForce(Vector2.up * _jumpForce);
         }
     }
+
+    private void UseAbility()
+    {
+        _timeRemaining = _abilityCooldown;
+        
+        switch (_playerForm)
+        {
+            case PlayerForms.Earth:
+                CreateEarthCube();
+                break;
+            case PlayerForms.Air:
+                CreateHurricane();
+                break;
+            case PlayerForms.Fire:
+                CreateFireball();
+                break;
+        }
+    }
+
+    private void CreateFireball()
+    {
+    }
+
+    private void CreateEarthCube()
+    {
+        
+    }
+
+    private void CreateHurricane()
+    {
+    }
+    
+    
 
     private void SetPlayerForm(PlayerForms form)
     {
