@@ -30,6 +30,12 @@ public class PlayerController : MonoBehaviour
     private bool _lookRight;
     private bool _isJumping;
     private static readonly int MoveX = Animator.StringToHash("moveX");
+    private Camera _camera;
+
+    private void Awake()
+    {
+        _camera = Camera.main;
+    }
 
     private void Start()
     {
@@ -38,6 +44,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if (_camera != null)
+        {
+            var position = transform.position;
+            var transform1 = _camera.transform;
+            transform1.position = new Vector3(position.x, position.y, transform1.position.z);
+        }
+        
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             SetPlayerForm(PlayerForms.Earth);
