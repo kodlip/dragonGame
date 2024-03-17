@@ -190,7 +190,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 4
+  m_Mass: 150
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 4
@@ -225,7 +225,10 @@ MonoBehaviour:
   _earthAnimator: {fileID: 7194904145122634676}
   _airAnimator: {fileID: 8203804638612318799}
   _moveSpeed: 15
-  _jumpForce: 5000
+  _jumpForce: 180000
+  _fireballPrefab: {fileID: 2668056041661112576, guid: 85837cf23d951a144b0a549041af2034, type: 3}
+  _earthCubePrefab: {fileID: 580698618440038121, guid: 116ad6e891f9a3f4b9360884f407944b, type: 3}
+  _dashForce: 300000
 --- !u!1 &6057691524263894068
 GameObject:
   m_ObjectHideFlags: 0
