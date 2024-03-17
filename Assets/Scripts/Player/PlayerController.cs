@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
+using Cysharp.Threading.Tasks.Triggers;
 using UnityEngine;
 
 public enum PlayerForms
@@ -29,6 +30,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _earthCubePrefab;
     [SerializeField] private float _dashForce;
 
+    private int _userPoint;
+    
     private GameObject _earthCube;
     
     private Animator _currentAnimator;
@@ -50,6 +53,7 @@ public class PlayerController : MonoBehaviour
     
     private void Start()
     {
+        _userPoint = 0;
         _playerStartPosition = transform.position;
         SetPlayerForm(PlayerForms.Earth);
     }
@@ -104,6 +108,8 @@ public class PlayerController : MonoBehaviour
             _isJumping = false;
         }
     }
+
+    
 
     private void Walk()
     {
@@ -232,5 +238,10 @@ public class PlayerController : MonoBehaviour
                 _currentAnimator = _fireAnimator;
                 break;
         }
+    }
+
+    public void AddPoint(int i)
+    {
+        _userPoint += i;
     }
 }
