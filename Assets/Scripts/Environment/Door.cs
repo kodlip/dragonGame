@@ -17,7 +17,7 @@ public class Door : MonoBehaviour
     {
         if (_isOpened) return;
         _isOpened = true;
-        var position = new Vector3(_startPosition.x, _startPosition.y + 3, _startPosition.z);
+        var position = new Vector3(_startPosition.x, _startPosition.y + 7, _startPosition.z);
         transform.DOMove(position, 1f);
     }
 
@@ -25,5 +25,6 @@ public class Door : MonoBehaviour
     {
         if (!_isOpened) return;
         transform.DOMove(_startPosition, 1f);
+        _isOpened = false;
     }
 }

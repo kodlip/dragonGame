@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class PlateForDoor : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Sprite _disabledSprite;
+    [SerializeField] private Sprite _enabledSprite;
+    [SerializeField] private Door _door;
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        
+        if (col.TryGetComponent(out EarthCube earthCube))
+        {
+            _spriteRenderer.sprite = _enabledSprite;
+            if (_door != null)
+            {
+                _door.OpenDoor();
+            }
+        }
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+     private void OnTriggerExit2D(Collider2D col)
+     {
+         _spriteRenderer.sprite = _disabledSprite;
+         if (col.TryGetComponent(out EarthCube earthCube))
+         {
+             if (_door != null)
+             {
+                 _door.CloseDoor();
+             }
+         }
+     }
 }
