@@ -33,9 +33,7 @@ public class PlayerController : MonoBehaviour , ICanFly
     [SerializeField] private GameObject _hurricanePrefab;
     
     private GameObject _hurricaneInstance;
-    
     private int _userPoint;
-    
     private GameObject _earthCube;
     
     private Animator _currentAnimator;
@@ -50,6 +48,9 @@ public class PlayerController : MonoBehaviour , ICanFly
     private float _timeRemaining;
     private Vector3 _playerStartPosition;
     private bool _onDash;
+    
+    public static event Action<int> OnPlayerPointChanged;
+
     private void Awake()
     {
         _camera = Camera.main;
@@ -266,6 +267,7 @@ public class PlayerController : MonoBehaviour , ICanFly
     public void AddPoint(int i)
     {
         _userPoint += i;
+        OnPlayerPointChanged?.Invoke(_userPoint);
     }
 
     public void Fly()
