@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Hurricane : MonoBehaviour
 {
-    private void Start()
-    {
-        Invoke(nameof(SelfDestroy), 2f);
-    }
+    // private void Start()
+    // {
+    //     Invoke(nameof(SelfDestroy), 2f);
+    // }
 
-    private void SelfDestroy()
-    {
-        Destroy(gameObject);
-    }
+    // private void SelfDestroy()
+    // {
+    //     Destroy(gameObject);
+    // }
     
     private void OnTriggerEnter2D(Collider2D col)
     {
