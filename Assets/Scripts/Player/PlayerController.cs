@@ -102,7 +102,7 @@ public class PlayerController : MonoBehaviour , ICanFly
 
         if (transform.position.y < -50)
         {
-            transform.position = _playerStartPosition;
+            GameController.Instance.LoadCurrentLevelScene();
         }
     }
 
@@ -166,6 +166,8 @@ public class PlayerController : MonoBehaviour , ICanFly
         var fireball = Instantiate(_fireballPrefab, transform.position, Quaternion.identity);
         fireball.Init(_lookLeft ? Vector2.left : Vector2.right, 1);
         var vector = _lookLeft ? Vector2.right : Vector2.left;
+        
+        Physics2D.IgnoreCollision(GetComponent<Collider2D>(), fireball.GetComponent<Collider2D>());
         
         playerRigidbody.velocity = Vector2.zero;
         playerRigidbody.AddForce(vector * _dashForce);
@@ -232,8 +234,6 @@ public class PlayerController : MonoBehaviour , ICanFly
         _hurricaneInstance = Instantiate(_hurricanePrefab, position, Quaternion.identity);
     }
     
-    
-
     private void SetPlayerForm(PlayerForms form)
     {
         switch (form)
