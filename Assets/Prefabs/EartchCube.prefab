@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1137752772531904105}
   - component: {fileID: 1181819661011328866}
   - component: {fileID: 311543271985073537}
+  - component: {fileID: 5522083236328686521}
   m_Layer: 0
   m_Name: EartchCube
   m_TagString: Untagged
@@ -169,5 +170,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a570846c10294804c943a5f681b70acc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5522083236328686521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 580698618440038121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 124edaabe9213584bb61f9ee9b8802bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
