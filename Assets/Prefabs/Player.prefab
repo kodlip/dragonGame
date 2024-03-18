@@ -229,6 +229,7 @@ MonoBehaviour:
   _fireballPrefab: {fileID: 2668056041661112576, guid: 85837cf23d951a144b0a549041af2034, type: 3}
   _earthCubePrefab: {fileID: 580698618440038121, guid: 116ad6e891f9a3f4b9360884f407944b, type: 3}
   _dashForce: 300000
+  _hurricanePrefab: {fileID: 7694531673977724684, guid: 302f2fb54b0d82847b2c48a115bfe0b6, type: 3}
 --- !u!1 &6057691524263894068
 GameObject:
   m_ObjectHideFlags: 0

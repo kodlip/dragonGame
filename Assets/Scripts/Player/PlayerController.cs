@@ -12,7 +12,7 @@ public enum PlayerForms
     Fire,
 }
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour , ICanFly
 {
     [SerializeField] private Rigidbody2D playerRigidbody;
     [SerializeField] private GameObject playerFireForm;
@@ -30,6 +30,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _earthCubePrefab;
     [SerializeField] private float _dashForce;
 
+    [SerializeField] private GameObject _hurricanePrefab;
+    
+    private GameObject _hurricaneInstance;
+    
     private int _userPoint;
     
     private GameObject _earthCube;
@@ -206,6 +210,25 @@ public class PlayerController : MonoBehaviour
 
     private void CreateHurricane()
     {
+        if (_hurricaneInstance != null)
+        {
+            Destroy(_hurricaneInstance);
+        }
+
+        var transform1 = transform;
+        var position1 = transform1.position;
+        var position = Vector2.zero;
+        
+        if (_lookLeft)
+        { 
+            position = new Vector2(position1.x - 5f,  position1.y - 1.55f);
+        }
+        else
+        { 
+            position = new Vector2(position1.x + 5f,  position1.y - 1.55f);  
+        }
+        
+        _hurricaneInstance = Instantiate(_hurricanePrefab, position, Quaternion.identity);
     }
     
     
@@ -244,4 +267,14 @@ public class PlayerController : MonoBehaviour
     {
         _userPoint += i;
     }
+
+    public void Fly()
+    {
+        playerRigidbody.AddForce( Vector2.up * (_jumpForce * 2));
+    }
+}
+
+public interface ICanFly
+{
+    void Fly();
 }
