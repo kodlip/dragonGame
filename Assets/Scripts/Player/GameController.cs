@@ -31,11 +31,11 @@ public class GameController : MonoSingleton<GameController>
     {
         if (arg0.name.StartsWith("level"))
         {
-            _scoreText.gameObject.SetActive(false); 
+            _scoreText.gameObject.SetActive(true); 
         }
         else
         {
-            _scoreText.gameObject.SetActive(true);
+            _scoreText.gameObject.SetActive(false);
         }
     }
 
